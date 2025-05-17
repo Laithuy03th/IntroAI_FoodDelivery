@@ -10,13 +10,14 @@
    
 
 <style>
+    .bg-light{
+            background-color: #afc2d6;
+        }
         body {
             background: #bcf4fa;
             min-height: 100vh;
         }
-        .bg-light{
-            background-color: #c8daed;
-        }
+        
         
         .route-layout {
             max-width: 1200px;
@@ -66,7 +67,7 @@
             gap: 2px;
             margin: 0 auto 30px auto;
             max-width: 650px;
-            background: #fff;
+            background: #8ecdce;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             padding: 14px;
@@ -143,31 +144,10 @@
         document.getElementById('message').textContent = 'Không tìm thấy orderId!';
     } else {
         const route_path = '/api/delivery/route/' + orderId;
-        // fetch(`/api/delivery/route/`)
+        // fetch(`/api/delivery/route/${orderId}`)
         fetch(route_path)
             .then(res => res.json())
-            // .then(data => {
-            //     // Nếu trả về lỗi dạng chuỗi
-            //     if (typeof data === 'string') {
-            //         document.getElementById('message').textContent = data;
-            //         renderRoute([]); // Vẫn vẽ lưới trắng
-            //         return;
-            //     }
-            //     // Nếu trả về mảng rỗng
-            //     if (!Array.isArray(data) || data.length === 0) {
-            //         document.getElementById('message').textContent = 'Không tìm được đường đi!';
-            //         renderRoute([]);
-            //         return;
-            //     }
-            //     // Nếu trả về mảng hợp lệ
-            //     document.getElementById('message').textContent = '';
-            //     renderRoute(data);
-            // })
-            // .catch(err => {
-            //     document.getElementById('message').textContent = 'Lỗi khi lấy dữ liệu đường đi!';
-            //     renderRoute([]);
-            // });
-//////
+           
             .then(data => {
     if (typeof data === 'string') {
         document.getElementById('message').textContent = data;
